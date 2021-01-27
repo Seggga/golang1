@@ -2,17 +2,29 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/seggga/golang1/04_sort/sorter"
 )
 
 func main() {
 
-	// неотсортированный слайс
-	userSlice := []int{9, 8, 7, 6, 5, 4, 3, 2, 1}
+	//ввод исходной последовательности чисел из файла
+	var fileName string = "numbers.txt"
+	userSlice, err := sorter.ReadFile(fileName)
+	if err != nil {
+		fmt.Printf("ошибка считывания данных из файла\n%v\n%#v\n", err, err)
+	}
+
+	//если хоть что-то удалось считать, будем работать с этим
+	if userSlice == nil {
+		os.Exit(2)
+	}
+
+	//вывод исходной последовательности
 	fmt.Printf("%#v", userSlice)
 
-	// сортировка слайса
+	// сортировка и вывод слайса
 	sorter.InsSorter(userSlice)
 	fmt.Printf("\n%#v", userSlice)
 
