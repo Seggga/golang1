@@ -1,0 +1,15 @@
+// tracing
+		f, err := os.Create("trace_file.out")
+		if err != nil {
+			panic(err)
+		}
+		defer f.Close()
+
+		err = trace.Start(f)
+		if err != nil {
+			panic(err)
+		}
+		defer trace.Stop()
+
+		в терминале ввести: 
+            go tool trace .\trace_file.out
