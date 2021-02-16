@@ -17,45 +17,44 @@ func main() {
 	var userInput string
 
 	//Приветствие
-	fmt.Println("Программа КАЛЬКУЛЯТОР вычисляет значения простейших арифметических выражений.\n\n")
+	fmt.Println("This application implements a set of 4 simple mathematics operations.")
 
 	//ввод первого числа
-	fmt.Print("Введите первое число (пример 12.345): ")
+	fmt.Print("Please, enter the first operand (for example, 12.345): ")
 	_, err := fmt.Scanln(&userInput)
 	if err != nil {
-		fmt.Printf("Ошибка ввода, программа завершает работу.\n%v", err)
+		fmt.Printf("There is an error entering data.\n%v", err)
 		return
 	}
+	
 	//парсинг первого числа
 	a, err = strconv.ParseFloat(userInput, 64)
 	if err != nil {
-		fmt.Println("Введенные данные не удается распознать как число.")
-		fmt.Println("Программа завершает работу.")
+		fmt.Println("Entered data cannot be recognized as a number.")
 		fmt.Printf("%v", err)
 		return
 	}
 
 	//ввод второго числа
-	fmt.Print("Введите второе число (пример 0.987): ")
+	fmt.Print("Please, enter the second operand (for example, 0.987): ")
 	_, err = fmt.Scanln(&userInput)
 	if err != nil {
-		fmt.Printf("Ошибка ввода, программа завершает работу.\n%v", err)
+		fmt.Printf("There is an error entering data.\n%v", err)
 		return
 	}
 	//парсинг второго числа
 	b, err = strconv.ParseFloat(userInput, 64)
 	if err != nil {
-		fmt.Println("Введенные данные не удается распознать как число.")
-		fmt.Println("Программа завершает работу.")
+		fmt.Println("Entered data cannot be recognized as a number.")
 		fmt.Printf("%v", err)
 		return
 	}
 
 	//ввод знака арифметического действия
-	fmt.Print("Введите знак арифметического действия ( + - * / ): ")
+	fmt.Print("Please, enter the sign of desired operation ( + - * / ): ")
 	_, err = fmt.Scanln(&userInput)
 	if err != nil {
-		fmt.Printf("Ошибка ввода, программа завершает работу.\n%v", err)
+		fmt.Printf("There is an error entering data.\n%v", err)
 		return
 	}
 	switch userInput {
@@ -68,12 +67,11 @@ func main() {
 	case "/":
 		result = a / b
 	default:
-		fmt.Println("Введенные данные не удается распознать как знак арфиметического действия.")
-		fmt.Println("Программа завершает работу.")
+		fmt.Println("Entered data cannot be recognized as a mathematics sign.")
 		fmt.Printf("%v", err)
 		return
 	}
 
-	fmt.Printf("\nЗначение выражения %f %s %f равно %f\n\n\n", a, userInput, b, result)
+	fmt.Printf("\nMathematical equasion %f %s %f results in %f\n", a, userInput, b, result)
 
 }
