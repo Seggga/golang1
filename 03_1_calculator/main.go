@@ -27,7 +27,7 @@ func main() {
 		return
 	}
 	//парсинг первого числа
-	a, err = strconv.ParseFloat(userInput, 32)
+	a, err = strconv.ParseFloat(userInput, 64)
 	if err != nil {
 		fmt.Println("Введенные данные не удается распознать как число.")
 		fmt.Println("Программа завершает работу.")
@@ -43,7 +43,7 @@ func main() {
 		return
 	}
 	//парсинг второго числа
-	b, err = strconv.ParseFloat(userInput, 32)
+	b, err = strconv.ParseFloat(userInput, 64)
 	if err != nil {
 		fmt.Println("Введенные данные не удается распознать как число.")
 		fmt.Println("Программа завершает работу.")
