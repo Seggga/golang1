@@ -9,22 +9,22 @@ import (
 
 func main() {
 
-	//ввод исходной последовательности чисел из файла
+	//reading data from file
 	var fileName string = "numbers.txt"
 	userSlice, err := sorter.ReadFile(fileName)
 	if err != nil {
-		fmt.Printf("ошибка считывания данных из файла\n%v\n%#v\n", err, err)
+		fmt.Printf("Error rading data from file\n%v\n\n", err)
 	}
 
-	//если хоть что-то удалось считать, будем работать с этим
+	//if something has been read, that is data to work on
 	if userSlice == nil {
-		os.Exit(2)
+		return
 	}
 
-	//вывод исходной последовательности
+	//printing initial slice
 	fmt.Printf("%#v", userSlice)
 
-	// сортировка и вывод слайса
+	// sorting and printing sorted slice
 	sorter.InsSorter(userSlice)
 	fmt.Printf("\n%#v", userSlice)
 
