@@ -9,6 +9,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"math"
 
 	"github.com/seggga/golang1/03_2_primes/primes"
 )
@@ -46,7 +47,7 @@ func main() {
 	var primeNumbers []int = make([]int, 1)
 	primeNumbers[0] = 2  //первое простое число
 
-	for i := 3; i <= num; i++ {
+	for i := 3; i <= int(math.Sqrt(float64(num))); i++ {
 		if primes.IsPrime(i, primeNumbers) {
 			primeNumbers = append(primeNumbers, i)
 		}
