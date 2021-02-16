@@ -1,9 +1,9 @@
+package main
+
 /*
 Написать приложение, которое ищет все простые числа от 0 до N включительно.
 Число N должно быть задано из стандартного потока ввода
 */
-
-package main
 
 import (
 	"fmt"
@@ -15,36 +15,36 @@ import (
 
 func main() {
 
-	var num int
-	var userInput string
-	var primeNumbers []int = make([]int, 1)
-
 	//приветствие
-	fmt.Printf("\n\nПрограмма PRIMES находит все простые числа от 0 до N.\n\n")
+	fmt.Printf("\n\nThis application looks for a set of prime numbers from 0 to N.\n\n")
 
 	//ввод числа
-	fmt.Print("Введите целое число N больше 2 (пример 10): ")
+	var userInput string
+	fmt.Print("Please, enter a N (the limit) greater then 2 (for example, 10): ")
 	_, err := fmt.Scanln(&userInput)
 	if err != nil {
-		fmt.Println("Ошибка ввода, программа завершает работу.")
-		os.Exit(2)
+		fmt.Println("There is an error in entering data.")
+		fmt.Printf("%v", err)
+		return
 	}
 
 	//парсинг  числа
+	var num int
 	num, err = strconv.Atoi(userInput)
 	if err != nil {
-		fmt.Println("Введенные данные не удается распознать как целое число.")
-		fmt.Println("Программа завершает работу.")
-		os.Exit(3)
+		fmt.Println("Entered data cannot be recognized as a number.")
+		fmt.Printf("%v", err)
+		return
 	}
 
 	if num <= 2 {
-		fmt.Println("Введенное число должно быть больше 2. Программа завершает работу.")
-		os.Exit(4)
+		fmt.Println("limit number ( N ) is expected to be greater then 2. Entered data is %d", num)
+		return
 	}
 
-	//первое простое число
-	primeNumbers[0] = 2
+	
+	var primeNumbers []int = make([]int, 1)
+	primeNumbers[0] = 2  //первое простое число
 
 	for i := 3; i <= num; i++ {
 		if primes.IsPrime(i, primeNumbers) {
@@ -52,5 +52,5 @@ func main() {
 		}
 	}
 
-	fmt.Printf("\nВ диапазоне от 0 до %d имеются следующие простые числа:\n%v\n\n", num, primeNumbers)
+	fmt.Printf("\nIn the given interval from 0 to %d there are primes as folows:\n%v\n", num, primeNumbers)
 }
