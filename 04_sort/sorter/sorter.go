@@ -1,53 +1,38 @@
 package sorter
 
-import (
-	"bufio"
-	"os"
-	"strconv"
-)
+// InsSort реализует алгоритм сортировки вставкой, принимает на вход слайс целых чисел []int, его же и модифицирует
+func InsSort(userSlice []int32) []int32 {
 
-// InsSorter реализует алгоритм сортировки вставкой, принимает на вход слайс целых чисел []int, его же и модифицирует
-func InsSorter(dataSlice []int) {
-	for i := 1; i < len(dataSlice); i++ {
+	sortedSlice := make([]int32, len(userSlice))
+	copy(sortedSlice, userSlice)
+
+	for i := 1; i < len(sortedSlice); i++ {
 		for j := i; j > 0; j-- {
-			if dataSlice[j] < dataSlice[j-1] {
-				dataSlice[j], dataSlice[j-1] = dataSlice[j-1], dataSlice[j]
+			if sortedSlice[j] < sortedSlice[j-1] {
+				sortedSlice[j], sortedSlice[j-1] = sortedSlice[j-1], sortedSlice[j]
 			} else {
 				break
 			}
 		}
 	}
+
+	return sortedSlice
 }
 
-// ReadFile считывает целые числа из файла, формирует выходной слайс
-// требования к формату входного файла: целые числа через пробел в одну строку или несколько строк.
-func ReadFile(fileName string) ([]int, error) {
+//BubbleSort implements sorting algorythm on a slice []int32
+func BubbleSort(userSlice []int32) []int32 {
 
-	// открытие файла
-	file, err := os.Open(fileName)
-	if err != nil {
-		return nil, err
-	}
+	sortedSlice := make([]int32, len(userSlice))
+	copy(sortedSlice, userSlice)
 
-	var outSlice []int
+	for i := 0; i < len(sortedSlice)-1; i++ {
 
-	// получение контента из файла
-	scanner := bufio.NewScanner(file)
-	scanner.Split(bufio.ScanWords)
-
-	for scanner.Scan() {
-		line := scanner.Text()
-		num, err := strconv.ParseInt(line, 10, 64)
-
-		if err != nil {
-			return outSlice, err
+		for j := 0; j < len(sortedSlice)-i-1; j++ {
+			if sortedSlice[j] > sortedSlice[j+1] {
+				sortedSlice[j], sortedSlice[j+1] = sortedSlice[j+1], sortedSlice[j]
+			}
 		}
-
-		typedNum := int(num)
-		outSlice = append(outSlice, typedNum)
 	}
 
-	file.Close()
-
-	return outSlice, err
+	return sortedSlice
 }
