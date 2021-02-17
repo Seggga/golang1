@@ -1,6 +1,6 @@
 package sorter
 
-// InsSort реализует алгоритм сортировки вставкой, принимает на вход слайс целых чисел []int, его же и модифицирует
+// InsSort implements insertion sort algorithm on a slice
 func InsSort(userSlice []int32) []int32 {
 
 	sortedSlice := make([]int32, len(userSlice))
@@ -19,7 +19,7 @@ func InsSort(userSlice []int32) []int32 {
 	return sortedSlice
 }
 
-//BubbleSort implements sorting algorythm on a slice []int32
+//BubbleSort implements bubble sorting algorithm on a slice
 func BubbleSort(userSlice []int32) []int32 {
 
 	sortedSlice := make([]int32, len(userSlice))
