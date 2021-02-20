@@ -1,0 +1,30 @@
+testify удобен простотой использования функций equal / notequal....
+Отчетливо это видно в тестировании сортировки: сравнение целочисленных слайсов происходит так же, как сравнение для простых типов.
+Также полезен подробный вывод.
+
+Полагаю при тестировании масштабной библиотеки значительно сокрщает время на создание тестов.
+
+
+
+
+Running tool: C:\Go\bin\go.exe test -timeout 30s -run ^TestInsertionSort$ github.com/seggga/golang1/10_test/sorter_test
+
+--- FAIL: TestInsertionSort (0.00s)
+    c:\go_proj\geekbrains\03_GO_level1\golang-git\golang1\10_test\sorter_test\testify_test.go:14: 
+        	Error Trace:	testify_test.go:14
+        	Error:      	Not equal: 
+        	            	expected: []int32{0, 0, 0, 0, 1}
+        	            	actual  : []int32{0, 0, 0, 0, 0}
+        	            	
+        	            	Diff:
+        	            	--- Expected
+        	            	+++ Actual
+        	            	@@ -5,3 +5,3 @@
+        	            	  (int32) 0,
+        	            	- (int32) 1
+        	            	+ (int32) 0
+        	            	 }
+        	Test:       	TestInsertionSort
+FAIL
+FAIL	github.com/seggga/golang1/10_test/sorter_test	0.181s
+FAIL
