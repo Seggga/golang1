@@ -13,7 +13,7 @@ var tests = []struct {
 }{
 	{name: "table-test one", input: 1, want: 1},
 	{name: "table-test two", input: 2, want: 1},
-	{name: "table-test 30", input: 30, want: 832040},
+	{name: "table-test 30", input: 31, want: 832040},
 }
 
 func TestFindNumRecursive(t *testing.T) {

@@ -13,7 +13,7 @@ var tests = []struct {
 	want  []int32
 }{
 	{name: "negative", input: []int32{-1, -10, -100, -1000}, want: []int32{-1000, -100, -10, -1}},
-	{name: "zeroes", input: []int32{0, 0, 0, 0, 0}, want: []int32{0, 0, 0, 0, 0}},
+	{name: "zeroes", input: []int32{0, 0, 0, 0, 0}, want: []int32{0, 0, 0, 0, 1}},
 	{name: "different sign", input: []int32{15, 0, 5, -10, -15, -5, 10}, want: []int32{-15, -10, -5, 0, 5, 10, 15}},
 }
 
